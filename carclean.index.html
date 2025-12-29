@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Clean Drive - Estética Automotiva Premium</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap');
+
+    :root {
+      --bg: #000000;
+      --card: #0a0a0a;
+      --card-hover: #141414;
+      --primary: #00ff88;
+      --primary-dark: #00cc6a;
+      --text: #ffffff;
+      --muted: #a0a0a0;
+      --border: rgba(255, 255, 255, 0.1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* BACKGROUND ANIMADO */
+    .bg-gradient {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at 20% 50%, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 80%, rgba(0, 255, 136, 0.1) 0%, transparent 50%);
+      animation: gradient-shift 15s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 0.8; }
+    }
+
+    /* HEADER PREMIUM */
+    header {
+      position: relative;
+      text-align: center;
+      padding: 120px 20px 100px;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, transparent 100%);
+      z-index: -1;
+    }
+
+    .logo {
+      display: inline-block;
+      font-size: 1rem;
+      letter-spacing: 3px;
+      color: var(--primary);
+      margin-bottom: 40px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    header h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -2px;
+      line-height: 1.1;
+    }
+
+    header p {
+      font-size: 1.3rem;
+      color: var(--muted);
+      margin-bottom: 40px;
+      font-weight: 300;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--primary);
+      color: #000;
+      padding: 18px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 0 40px rgba(0, 255, 136, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 60px rgba(0, 255, 136, 0.5);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    section {
+      padding: 100px 0;
+    }
+
+    h2 {
+      font-size: 3rem;
+      margin-bottom: 60px;
+      text-align: center;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    h2 span {
+      color: var(--primary);
+    }
+
+    /* CARDS PREMIUM */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 40px;
+      border-radius: 20px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.05) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      background: var(--card-hover);
+      border-color: var(--primary);
+      box-shadow: 0 20px 60px rgba(0, 255, 136, 0.2);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    /* LISTA PREMIUM */
+    .services-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      list-style: none;
+      margin-top: 40px;
+    }
+
+    .services-list li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 25px 30px;
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: all 0.3s;
+      font-size: 1.05rem;
+    }
+
+    .services-list li:hover {
+      border-color: var(--primary);
+      transform: translateX(5px);
+      background: var(--card-hover);
+    }
+
+    .services-list li::before {
+      content: '✓';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 30px;
+      height: 30px;
+      background: var(--primary);
+      color: #000;
+      border-radius: 50%;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+
+    /* ABOUT SECTION */
+    .about-content {
+      max-width: 800px;
+      margin: auto;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 50px;
+      border-radius: 25px;
+      text-align: center;
+    }
+
+    .about-content p {
+      font-size: 1.2rem;
+      line-height: 1.9;
+      color: var(--muted);
+    }
+
+    /* STATS */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 30px;
+      margin-top: 60px;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 30px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      transition: all 0.3s;
+    }
+
+    .stat:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--card);
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
+    }
+
+    footer p {
+      color: var(--muted);
+      margin: 10px 0;
+    }
+
+    /* WHATSAPP BUTTON */
+    .whatsapp {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #25d366, #128c7e);
+      color: #fff;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      text-decoration: none;
+      box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: all 0.3s;
+      animation: pulse 2s infinite;
+    }
+
+    .whatsapp:hover {
+      transform: scale(1.1);
+      box-shadow: 0 15px 50px rgba(37, 211, 102, 0.6);
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 10px 40px rgba(37, 211, 102, 0.4);
+      }
+      50% {
+        box-shadow: 0 10px 60px rgba(37, 211, 102, 0.7);
+      }
+    }
+
+    /* ANIMAÇÕES */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.8rem;
+      }
+
+      header p {
+        font-size: 1.1rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .about-content {
+        padding: 35px;
+      }
+
+      .card {
+        padding: 30px;
+      }
+
+      .stat-number {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-header {
+        flex-direction: column !important;
+        gap: 1.5rem !important;
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+      }
+      .hero-text {
+        text-align: center !important;
+        align-items: center !important;
+      }
+      .btn {
+        align-self: center !important;
+      }
+    }
+  </style>
+</head>
+
+  <body>
+  <div class="bg-gradient"></div>
+
+  <nav class="main-menu" style="width:100%;background:var(--card);border-bottom:1px solid var(--border);padding:0.5rem 0;position:sticky;top:0;z-index:100;">
+    <div class="container" style="display:flex;justify-content:center;gap:2rem;">
+      <a href="#hero" style="color:var(--primary);font-weight:700;text-decoration:none;">Início</a>
+      <a href="#servicos" style="color:var(--primary);font-weight:700;text-decoration:none;">Serviços</a>
+      <a href="#resultados" style="color:var(--primary);font-weight:700;text-decoration:none;">Resultados</a>
+      <a href="#quem-somos" style="color:var(--primary);font-weight:700;text-decoration:none;">Quem Somos</a>
+      <a href="#contato" style="color:var(--primary);font-weight:700;text-decoration:none;">Contato</a>
+    </div>
+  </nav>
+
+  <header class="reveal hero-header" id="hero" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:2rem;padding-top:60px;padding-bottom:60px;">
+    <div class="hero-text" style="flex:1 1 340px;min-width:260px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;max-width:480px;margin-left:auto;margin-right:auto;">
+      <div class="logo" style="margin-bottom:24px;">PREMIUM SERVICE</div>
+      <h1 style="font-size:2.8rem;margin-bottom:1rem;line-height:1.1;">Car Clean Drive</h1>
+      <p style="font-size:1.1rem;margin-bottom:2rem;line-height:1.4;">Seu carro sempre pronto para mais corridas e melhores avaliações</p>
+      <a class="btn" href="https://wa.me/5521979511720" target="_blank" style="align-self:center;">
+        <span>📲</span> Agendar Agora
+      </a>
+      <div style="margin-top:12px;font-size:1rem;color:var(--muted);font-weight:500;text-align:center;">
+        ⏱ Atendimento rápido • 🚗 Foco em Uber • ⭐ Resultados reais
+      </div>
+    </div>
+    <div class="hero-img" style="flex:1 1 320px;min-width:220px;display:flex;align-items:center;justify-content:center;">
+      <img src="https://i.ibb.co/0pDFTY6G/byd-d1-uber-1.jpg" alt="byd d1 uber 1" style="max-width:340px;width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:2rem;box-shadow:0 8px 32px rgba(0,255,136,0.12);border:2px solid var(--primary);background:#222;display:block;margin-left:auto;margin-right:auto;" loading="lazy">
+    </div>
+  </header>
+
+  <section class="reveal" id="servicos">
+    <div class="container">
+      <h2>Nossos <span>Serviços</span></h2>
+      <ul class="services-list">
+        <li>Limpeza interna completa</li>
+        <li>Limpeza externa detalhada</li>
+        <li>Higienização de bancos</li>
+        <li>Aspiração profunda</li>
+        <li>Remoção de odores</li>
+        <li>Limpeza de ar-condicionado</li>
+        <li>Tratamento de couro</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="container">
+      <h2>Por Que <span>Escolher</span> a CarClean?</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <span class="card-icon">⭐</span>
+          <h3>Mais Avaliações 5★</h3>
+          <p>Carros impecáveis impressionam passageiros e garantem melhores notas no aplicativo.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">⚡</span>
+          <h3>Serviço Rápido</h3>
+          <p>Entendemos que tempo parado é dinheiro perdido. Serviço ágil sem comprometer qualidade.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">💎</span>
+          <h3>Qualidade Premium</h3>
+          <p>Produtos profissionais e técnicas avançadas para resultados superiores.</p>
+        </div>
+        <div class="card">
+          <span class="card-icon">💰</span>
+          <h3>Preço Justo</h3>
+          <p>Valores especiais para quem trabalha todos os dias. Seu investimento vale a pena.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="resultados">
+    <div class="container">
+      <h2>Resultados <span>Comprovados</span></h2>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Clientes Satisfeitos Comprovados</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">1h ~ 3h</div>
+          <div class="stat-label">Tempo Médio (varia conforme nível de sujidade)</div>
+        </div>
+
+      </div>
+      <div style="display:flex;gap:2rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap;">
+        <div style="background:var(--card);border:1px solid var(--primary);border-radius:1.2rem;padding:1.2rem 2.2rem;font-size:1.25rem;font-weight:700;color:var(--primary);box-shadow:0 2px 16px rgba(0,255,136,0.08);text-align:center;min-width:180px;">+387 carros atendidos</div>
+        <div style="background:var(--card);border:1px solid var(--primary);border-radius:1.2rem;padding:1.2rem 2.2rem;font-size:1.25rem;font-weight:700;color:var(--primary);box-shadow:0 2px 16px rgba(0,255,136,0.08);text-align:center;min-width:180px;">+4.9⭐ média de avaliação dos clientes</div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="quem-somos">
+    <div class="container">
+      <h2>Quem <span>Somos</span></h2>
+      <div class="about-content">
+        <p>
+          A CarClean é especializada em estética automotiva premium para motoristas de aplicativo.
+          Seu carro é sua ferramenta de trabalho — nós cuidamos dele com excelência para você 
+          conquistar mais avaliações 5 estrelas e aumentar seus ganhos.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reveal" id="contato">
+    <div class="container">
+      <h2>Contato</h2>
+      <div class="about-content" style="text-align:left;max-width:500px;margin:auto;">
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5521979511720" style="color:var(--primary);text-decoration:underline;">(21) 97951-1720</a></p>
+        <p><strong>Endereço:</strong> Av. Exemplo, 123 - Centro, Cidade</p>
+        <p><strong>Email:</strong> contato@carclean.com.br</p>
+        <p><strong>Horário:</strong> Seg a Sáb, 8h às 18h</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="reveal" id="contato">
+    <p style="font-size: 1.1rem; font-weight: 600; margin-bottom: 15px;">
+      📲 Atendimento via WhatsApp
+    </p>
+    <p>© 2025 CarClean - Estética Automotiva Premium</p>
+    <p style="margin-top: 15px; font-size: 0.85rem;">
+      Feito com 💚 para motoristas profissionais
+    </p>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/5521979511720" target="_blank" aria-label="Contato WhatsApp">
+    💬
+  </a>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
